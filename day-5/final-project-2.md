@@ -1,5 +1,13 @@
 ## Validate the infra -- follow up 
 ### Kubernetes
+* set up your user:
+```
+cd ../../home/<username>/
+mkdir .kube
+touch .kube/config
+vim .kube/config 
+kubectl version
+```
 * set your credentials:
   copy the below content in .kube/config file under your home directory:
 ```
