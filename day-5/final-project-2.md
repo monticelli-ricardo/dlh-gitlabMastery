@@ -15,7 +15,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkakNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdGMyVnkKZG1WeUxXTmhRREUzTXpJMk5UZ3lPREF3SGhjTk1qUXhNVEkyTWpFMU9EQXdXaGNOTXpReE1USTBNakUxT0RBdwpXakFqTVNFd0h3WURWUVFEREJock0zTXRjMlZ5ZG1WeUxXTmhRREUzTXpJMk5UZ3lPREF3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFSckdQYmRIR0FPcHBoRzAzSDhRMWhJSVM4UlcxZFJMbUpESHlybWt4MWUKTlVSVzFPa2JOYVpXQWhudlo3S2FwdVdOZmlVMW9wNzU0RDFjNzN0M2g1QTVvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVTFYMHo0ckRTQUthL3p3SnpaVjYrCkNxeGd6TXd3Q2dZSUtvWkl6ajBFQXdJRFJ3QXdSQUlnQ3ZiTVFSTjJLNVcvaTMrUVB0Qy9DRUZHUXpxTGVRR1UKRDhhSVBYd1p1eWtDSUFwZnFaMWtyNkZnL3plVlZyYWVzSUF5eHFxSkh3eUtzUFhrNnV1SDQyMkMKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-    server: https://127.0.0.1:6443
+    server: https://kube-master:6443
   name: default
 contexts:
 - context:
@@ -33,6 +33,10 @@ users:
 ```
 **change localhost to kube-master**  
 * check the connection: `kubectl version`
+* set up your own namespace:
+  ```
+  kubectl create ns <namespace>
+  ```
 * check the cluster:
   ```
   kubectl cluster-info
@@ -40,7 +44,7 @@ users:
   ``` 
 * POSITION urself in the team's namespace:
   ```
-  kubectl config set-context --namespace team0 --current
+  kubectl config set-context --namespace <namespace> --current
   ```
 * quick test
   ```
